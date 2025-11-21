@@ -1,0 +1,16 @@
+[Unit]
+Description = Auto web login to school internet
+After = network.target network-online.target syslog.target
+Wants = network-online.target
+
+[Service]
+Type = simple
+# 启动frps的命令，需修改为您的frps的安装路径
+ExecStart = /home/neolux/Desktop/web_login/web_login.bash
+Restart = always
+RestartSec = 10s
+
+[Install]
+WantedBy = multi-user.target
+
+
